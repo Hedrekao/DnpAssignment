@@ -6,5 +6,11 @@
       "Password": "hederer123"
     }
   ],
-  "Posts": []
+  "Posts": [
+    {
+      "Id": 1,
+      "Title": "fdfddf",
+      "Body": "fdfd"
+    }
+  ]
 }
