@@ -1,4 +1,5 @@
 ﻿using Application.LogicInterfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Model;
 using Model.DTOs;
@@ -17,6 +18,7 @@ public class PostsController : ControllerBase
     }
     
     [HttpPost]
+    [Authorize]
     public async Task<ActionResult<Post>> CreateAsync([FromBody]PostCreationDto dto)
     {
         try
@@ -32,11 +34,26 @@ public class PostsController : ControllerBase
     }
     
     [HttpGet]
-    public async Task<ActionResult<Post>> GetAllAsync()
+    public async Task<ActionResult<IEnumerable<Post>>> GetAllAsync()
     {
         try
         {
             IEnumerable<Post> posts = await postLogic.GetAllAsync();
+            return Ok(posts);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return StatusCode(500, e.Message);
+        }
+    }
+    
+    [HttpGet("user/{id:int}")]
+    public async Task<ActionResult<IEnumerable<Post>>> GetPostsByUserIdAsync([FromRoute] int id)
+    {
+        try
+        {
+            IEnumerable<Post> posts = await postLogic.GetPostsByUserIdAsync(id);
             return Ok(posts);
         }
         catch (Exception e)
@@ -51,7 +68,8 @@ public class PostsController : ControllerBase
     {
         try
         {
-            Post post = await postLogic.GetByIdAsync(id);
+            Post? post = await postLogic.GetByIdAsync(id);
+            Console.WriteLine(post);
             return Ok(post);
         }
         catch (Exception e)
