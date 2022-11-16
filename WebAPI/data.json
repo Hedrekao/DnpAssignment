@@ -11,6 +11,12 @@
       "UserName": "Barto",
       "Password": "dnp111111",
       "Email": "bartek@gmail.com"
+    },
+    {
+      "Id": 3,
+      "UserName": "Test",
+      "Password": "test1234",
+      "Email": "test4343@tome.pl"
     }
   ],
   "Posts": [
@@ -67,6 +73,28 @@
         "UserName": "hedrekao",
         "Password": "dnp12345",
         "Email": "tomek.sloma321@gmail.com"
+      }
+    },
+    {
+      "Id": 6,
+      "Title": "Post 56",
+      "Body": "dfsfsfsgfdgdgdgdg",
+      "Creator": {
+        "Id": 1,
+        "UserName": "hedrekao",
+        "Password": "dnp12345",
+        "Email": "tomek.sloma321@gmail.com"
+      }
+    },
+    {
+      "Id": 7,
+      "Title": "Test post",
+      "Body": "fjdsf kesfbsdhfshkfnvsdhfkdhfsdjfdskljfjkslfjkldsjfslfjlkdslf",
+      "Creator": {
+        "Id": 3,
+        "UserName": "Test",
+        "Password": "test1234",
+        "Email": "test4343@tome.pl"
       }
     }
   ]
